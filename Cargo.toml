@@ -1,0 +1,30 @@
+[package]
+name = "wasm_fetch_example"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+server = ["dep:axum", "dep:tokio", "dep:tower-http"]
+
+[dependencies]
+gloo-net = {version = "0.2", default-features = false, features = ["json", "http"]}
+gloo-console = "0.2"
+serde = { version = "1", features = ["derive"]}
+thiserror = "1"
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4"
+console_error_panic_hook = "0.1"
+
+# optional
+axum = { version = "0.6.*", optional = true}
+tokio = { version = "1", features = ["full"], optional = true}
+tower-http = { version = "0.3", features = ["cors", "fs"], optional = true}
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3"
+

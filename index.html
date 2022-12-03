@@ -1,0 +1,17 @@
+<html lang="ja">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+  </head>
+  <body>
+    hello world!
+    <!-- Note the usage of `type=module` here as this is an ES6 module -->
+    <script type="module">
+        import init, { post_and_get_client } from './pkg/wasm_fetch_example.js';
+        async function main() {
+            await init();
+            await post_and_get_client();
+        }
+        main()
+    </script>
+  </body>
+</html>
